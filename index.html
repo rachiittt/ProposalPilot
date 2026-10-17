@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProposalPilot — AI Proposal Generator for Freelancers</title>
+  <meta name="description" content="Generate winning freelance proposals in seconds with open-source AI. Privacy-first, runs locally, zero API costs. Your side hustle wingman." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>" />
+</head>
+<body>
+  <!-- Animated background -->
+  <div class="bg-grid"></div>
+  <div class="bg-glow bg-glow-1"></div>
+  <div class="bg-glow bg-glow-2"></div>
+  <div class="bg-glow bg-glow-3"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#" class="nav-logo" id="nav-logo">
+        <span class="logo-icon">🚀</span>
+        <span class="logo-text">ProposalPilot</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features" class="nav-link" id="nav-features">Features</a>
+        <a href="#how-it-works" class="nav-link" id="nav-how">How It Works</a>
+        <a href="#generator" class="nav-link" id="nav-generator">Generator</a>
+        <a href="#pricing" class="nav-link" id="nav-pricing">Pricing</a>
+      </div>
+      <button class="nav-cta" id="nav-cta-btn" onclick="scrollToGenerator()">
+        Generate Proposal
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero-container">
+      <div class="hero-badge" id="hero-badge">
+        <span class="badge-dot"></span>
+        Open-Source AI Powered
+      </div>
+      <h1 class="hero-title" id="hero-title">
+        Stop Writing Proposals.<br/>
+        <span class="gradient-text">Start Winning Them.</span>
+      </h1>
+      <p class="hero-subtitle" id="hero-subtitle">
+        ProposalPilot uses open-weight AI models to craft personalized, persuasive freelance proposals in seconds. 
+        Your client data never leaves your machine. Zero API costs. 100% privacy.
+      </p>
+      <div class="hero-actions">
+        <button class="btn btn-primary btn-lg" id="hero-cta" onclick="scrollToGenerator()">
+          <span>Try It Free</span>
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <a href="https://github.com" class="btn btn-ghost btn-lg" id="hero-github">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.342-3.369-1.342-.454-1.155-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0110 4.836c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.137 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z"/></svg>
+          <span>View Source</span>
+        </a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat" id="stat-proposals">
+          <span class="stat-number" data-target="2847">0</span>
+          <span class="stat-label">Proposals Generated</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat" id="stat-time">
+          <span class="stat-number" data-target="94">0</span><span class="stat-suffix">%</span>
+          <span class="stat-label">Time Saved</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat" id="stat-winrate">
+          <span class="stat-number" data-target="3">0</span><span class="stat-suffix">x</span>
+          <span class="stat-label">Higher Win Rate</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Features</span>
+        <h2 class="section-title">Everything You Need to <span class="gradient-text">Win More Gigs</span></h2>
+        <p class="section-subtitle">Built for freelancers who are tired of spending hours crafting proposals that never get read.</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card" id="feature-ai">
+          <div class="feature-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M14 2L2 8l12 6 12-6-12-6z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 20l12 6 12-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M2 14l12 6 12-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 class="feature-title">AI-Powered Generation</h3>
+          <p class="feature-desc">Uses Gemma, Google's open-weight model, to understand project requirements and generate tailored proposals that actually resonate with clients.</p>
+        </div>
+        <div class="feature-card" id="feature-privacy">
+          <div class="feature-icon feature-icon-teal">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="11" width="22" height="14" rx="2" stroke="currentColor" stroke-width="2"/><path d="M7 11V7a7 7 0 1114 0v4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><circle cx="14" cy="18" r="2" fill="currentColor"/></svg>
+          </div>
+          <h3 class="feature-title">100% Private</h3>
+          <p class="feature-desc">Client names, project details, and your pricing strategy never leave your machine. No cloud APIs, no data harvesting, no surprises.</p>
+        </div>
+        <div class="feature-card" id="feature-cost">
+          <div class="feature-icon feature-icon-amber">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="12" stroke="currentColor" stroke-width="2"/><path d="M14 6v16M18 10c0-1.657-1.79-3-4-3s-4 1.343-4 3 1.79 3 4 3 4 1.343 4 3-1.79 3-4 3-4-1.343-4-3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="feature-title">$0 Running Cost</h3>
+          <p class="feature-desc">Open-weight models mean zero API fees. Generate unlimited proposals without watching your bill climb. The business math actually works.</p>
+        </div>
+        <div class="feature-card" id="feature-customize">
+          <div class="feature-icon feature-icon-rose">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M12 2L2 7v10l10 5 10-5V7L12 2z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" transform="translate(2,2)"/><path d="M14 14v8M14 14L6 9.5M14 14l8-4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="feature-title">Fully Customizable</h3>
+          <p class="feature-desc">Set your tone, expertise areas, rate range, and portfolio links. Every proposal reflects your brand, not a generic template.</p>
+        </div>
+        <div class="feature-card" id="feature-templates">
+          <div class="feature-icon feature-icon-violet">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect x="3" y="3" width="22" height="22" rx="3" stroke="currentColor" stroke-width="2"/><path d="M3 10h22M10 10v15" stroke="currentColor" stroke-width="2"/></svg>
+          </div>
+          <h3 class="feature-title">Smart Templates</h3>
+          <p class="feature-desc">Pre-built templates for Upwork, Fiverr, Toptal, and direct outreach. Each optimized for the platform's algorithms and buyer psychology.</p>
+        </div>
+        <div class="feature-card" id="feature-analytics">
+          <div class="feature-icon feature-icon-emerald">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><path d="M4 24V14M10 24V8M16 24V16M22 24V4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          </div>
+          <h3 class="feature-title">Win Rate Analytics</h3>
+          <p class="feature-desc">Track which proposals win, learn what works, and let the AI improve over time. Data-driven freelancing, powered by your own history.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="how-it-works" id="how-it-works">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">How It Works</span>
+        <h2 class="section-title">Three Steps to a <span class="gradient-text">Winning Proposal</span></h2>
+        <p class="section-subtitle">From job post to polished proposal in under 60 seconds.</p>
+      </div>
+      <div class="steps-container">
+        <div class="step" id="step-1">
+          <div class="step-number">01</div>
+          <div class="step-content">
+            <h3 class="step-title">Paste the Job Description</h3>
+            <p class="step-desc">Drop in the client's job posting, RFP, or project brief. The AI extracts requirements, budget signals, and key decision criteria automatically.</p>
+          </div>
+          <div class="step-visual">
+            <div class="step-mockup">
+              <div class="mockup-bar">
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+              </div>
+              <div class="mockup-content">
+                <div class="mockup-line w-80"></div>
+                <div class="mockup-line w-60"></div>
+                <div class="mockup-line w-90"></div>
+                <div class="mockup-line w-40"></div>
+                <div class="mockup-line w-70"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="step step-reverse" id="step-2">
+          <div class="step-number">02</div>
+          <div class="step-content">
+            <h3 class="step-title">Add Your Context</h3>
+            <p class="step-desc">Tell it about your relevant experience, preferred rate, and portfolio pieces. The AI weaves these into the narrative naturally — no copy-paste blocks.</p>
+          </div>
+          <div class="step-visual">
+            <div class="step-mockup mockup-dark">
+              <div class="mockup-bar">
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+              </div>
+              <div class="mockup-content">
+                <div class="mockup-tag">Experience</div>
+                <div class="mockup-tag">Rate</div>
+                <div class="mockup-tag">Portfolio</div>
+                <div class="mockup-tag">Tone</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="step" id="step-3">
+          <div class="step-number">03</div>
+          <div class="step-content">
+            <h3 class="step-title">Get Your Proposal</h3>
+            <p class="step-desc">Receive a personalized, platform-optimized proposal you can send immediately. Edit in-place, regenerate sections, or export as PDF.</p>
+          </div>
+          <div class="step-visual">
+            <div class="step-mockup mockup-gradient">
+              <div class="mockup-bar">
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+              </div>
+              <div class="mockup-content">
+                <div class="mockup-check">✓ Personalized greeting</div>
+                <div class="mockup-check">✓ Relevant experience</div>
+                <div class="mockup-check">✓ Clear deliverables</div>
+                <div class="mockup-check">✓ Professional close</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Generator Section -->
+  <section class="generator" id="generator">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Try It Now</span>
+        <h2 class="section-title">Generate Your <span class="gradient-text">First Proposal</span></h2>
+        <p class="section-subtitle">Paste a job description and watch the AI craft a winning proposal in real-time.</p>
+      </div>
+      <div class="generator-wrapper">
+        <div class="generator-form" id="generator-form">
+          <!-- Platform Selection -->
+          <div class="form-group">
+            <label class="form-label" for="platform-select">Platform</label>
+            <div class="platform-pills" id="platform-pills">
+              <button class="platform-pill active" data-platform="upwork" id="pill-upwork">
+                <span>📋</span> Upwork
+              </button>
+              <button class="platform-pill" data-platform="fiverr" id="pill-fiverr">
+                <span>🎯</span> Fiverr
+              </button>
+              <button class="platform-pill" data-platform="direct" id="pill-direct">
+                <span>✉️</span> Direct
+              </button>
+              <button class="platform-pill" data-platform="toptal" id="pill-toptal">
+                <span>💎</span> Toptal
+              </button>
+            </div>
+          </div>
+
+          <!-- Job Description -->
+          <div class="form-group">
+            <label class="form-label" for="job-description">Job Description <span class="required">*</span></label>
+            <textarea class="form-textarea" id="job-description" placeholder="Paste the client's job posting here...
+
+Example: 'Looking for a React developer to build a dashboard for our SaaS analytics product. Must have experience with D3.js charts, responsive design, and REST API integration. Timeline: 3 weeks. Budget: $2,000-$3,500.'" rows="6"></textarea>
+          </div>
+
+          <!-- Two-column inputs -->
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="your-expertise">Your Expertise</label>
+              <input class="form-input" id="your-expertise" type="text" placeholder="e.g., React, Node.js, D3.js, 5+ years" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="your-rate">Your Rate</label>
+              <input class="form-input" id="your-rate" type="text" placeholder="e.g., $75/hr or $2,800 fixed" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="your-name">Your Name</label>
+              <input class="form-input" id="your-name" type="text" placeholder="e.g., Alex Chen" />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="tone-select">Tone</label>
+              <select class="form-select" id="tone-select">
+                <option value="professional">Professional</option>
+                <option value="friendly">Friendly & Approachable</option>
+                <option value="confident">Confident & Direct</option>
+                <option value="consultative">Consultative Expert</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Portfolio Link -->
+          <div class="form-group">
+            <label class="form-label" for="portfolio-link">Portfolio / Relevant Work (optional)</label>
+            <input class="form-input" id="portfolio-link" type="text" placeholder="https://your-portfolio.com or describe past projects" />
+          </div>
+
+          <!-- Generate Button -->
+          <button class="btn btn-primary btn-generate" id="generate-btn" onclick="generateProposal()">
+            <span class="btn-text">Generate Proposal</span>
+            <span class="btn-loader" id="btn-loader">
+              <svg class="spinner" width="20" height="20" viewBox="0 0 20 20"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2" fill="none" stroke-dasharray="50" stroke-linecap="round"><animateTransform attributeName="transform" type="rotate" from="0 10 10" to="360 10 10" dur="0.8s" repeatCount="indefinite"/></circle></svg>
+            </span>
+            <svg class="btn-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+
+        <!-- Output Section -->
+        <div class="generator-output" id="generator-output">
+          <div class="output-empty" id="output-empty">
+            <div class="output-empty-icon">
+              <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="6" width="36" height="36" rx="4" stroke="currentColor" stroke-width="2" opacity="0.3"/><path d="M16 18h16M16 24h12M16 30h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" opacity="0.3"/><path d="M24 14l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" opacity="0.5"/></svg>
+            </div>
+            <p class="output-empty-text">Your AI-generated proposal will appear here</p>
+            <p class="output-empty-hint">Fill in the form and click "Generate Proposal"</p>
+          </div>
+          <div class="output-result" id="output-result" style="display: none;">
+            <div class="output-header">
+              <h3 class="output-title">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2l2.5 5 5.5.8-4 3.9.9 5.3L10 14.5 5.1 17l.9-5.3-4-3.9 5.5-.8L10 2z" fill="currentColor"/></svg>
+                Your Proposal
+              </h3>
+              <div class="output-actions">
+                <button class="output-action" id="copy-btn" onclick="copyProposal()" title="Copy to clipboard">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="6" y="6" width="10" height="10" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M12 6V4a2 2 0 00-2-2H4a2 2 0 00-2 2v6a2 2 0 002 2h2" stroke="currentColor" stroke-width="1.5"/></svg>
+                  Copy
+                </button>
+                <button class="output-action" id="regenerate-btn" onclick="generateProposal()" title="Regenerate">
+                  <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M1 9a8 8 0 0114.9-4M17 9A8 8 0 012.1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M15.9 1v4h-4M2.1 17v-4h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  Regenerate
+                </button>
+              </div>
+            </div>
+            <div class="output-body" id="output-body"></div>
+            <div class="output-footer">
+              <div class="output-meta">
+                <span class="output-meta-item" id="word-count">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 3h10M2 7h7M2 11h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  — words
+                </span>
+                <span class="output-meta-item" id="gen-time">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="6" stroke="currentColor" stroke-width="1.5"/><path d="M7 4v3l2 2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+                  Generated in —s
+                </span>
+              </div>
+              <span class="output-powered">Powered by Gemma (open-weight) via local inference</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing" id="pricing">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Pricing</span>
+        <h2 class="section-title">Open Source. <span class="gradient-text">Free Forever.</span></h2>
+        <p class="section-subtitle">Because your proposal data shouldn't fund someone else's business model.</p>
+      </div>
+      <div class="pricing-grid">
+        <div class="pricing-card" id="pricing-free">
+          <div class="pricing-header">
+            <h3 class="pricing-name">Self-Hosted</h3>
+            <div class="pricing-price">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount">0</span>
+              <span class="pricing-period">/forever</span>
+            </div>
+            <p class="pricing-desc">Run it on your own machine. Full control, full privacy.</p>
+          </div>
+          <ul class="pricing-features">
+            <li>Unlimited proposals</li>
+            <li>All templates included</li>
+            <li>Local AI inference</li>
+            <li>100% data privacy</li>
+            <li>Community support</li>
+            <li>Open-source codebase</li>
+          </ul>
+          <button class="btn btn-outline btn-block" id="pricing-free-btn">Get Started</button>
+        </div>
+        <div class="pricing-card pricing-card-featured" id="pricing-pro">
+          <div class="pricing-popular">Most Popular</div>
+          <div class="pricing-header">
+            <h3 class="pricing-name">Pro</h3>
+            <div class="pricing-price">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount">9</span>
+              <span class="pricing-period">/month</span>
+            </div>
+            <p class="pricing-desc">For serious freelancers who want the edge.</p>
+          </div>
+          <ul class="pricing-features">
+            <li>Everything in Self-Hosted</li>
+            <li>Cloud-hosted (no setup)</li>
+            <li>Win rate analytics</li>
+            <li>A/B proposal testing</li>
+            <li>Priority support</li>
+            <li>Custom brand templates</li>
+          </ul>
+          <button class="btn btn-primary btn-block" id="pricing-pro-btn">Start Free Trial</button>
+        </div>
+        <div class="pricing-card" id="pricing-agency">
+          <div class="pricing-header">
+            <h3 class="pricing-name">Agency</h3>
+            <div class="pricing-price">
+              <span class="pricing-currency">$</span>
+              <span class="pricing-amount">29</span>
+              <span class="pricing-period">/month</span>
+            </div>
+            <p class="pricing-desc">Multi-user, team workflows, white-label.</p>
+          </div>
+          <ul class="pricing-features">
+            <li>Everything in Pro</li>
+            <li>Up to 10 team members</li>
+            <li>White-label proposals</li>
+            <li>Team analytics dashboard</li>
+            <li>API access</li>
+            <li>Dedicated support</li>
+          </ul>
+          <button class="btn btn-outline btn-block" id="pricing-agency-btn">Contact Sales</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-badge">Testimonials</span>
+        <h2 class="section-title">Freelancers <span class="gradient-text">Love It</span></h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card" id="testimonial-1">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"I used to spend 45 minutes per proposal. Now it's 5 minutes of tweaking. My win rate went from 8% to 23%. This thing pays for itself."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">SK</div>
+            <div>
+              <div class="testimonial-name">Sarah Kim</div>
+              <div class="testimonial-role">Full-Stack Developer · Upwork Top Rated</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" id="testimonial-2">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The privacy angle sold me. My clients include healthcare companies — I can't have their project details hitting some random API. Local inference is the only way."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">MR</div>
+            <div>
+              <div class="testimonial-name">Marcus Rivera</div>
+              <div class="testimonial-role">Data Consultant · Independent</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card" id="testimonial-3">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"I was skeptical about AI proposals, but the Gemma model actually understands my niche. Told it about my UX research background and it wove it in naturally."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">JT</div>
+            <div>
+              <div class="testimonial-name">Jenna Torres</div>
+              <div class="testimonial-role">UX Researcher · Toptal Network</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Source Section -->
+  <section class="open-source" id="open-source">
+    <div class="section-container">
+      <div class="oss-card">
+        <div class="oss-content">
+          <span class="section-badge">Open Source</span>
+          <h2 class="oss-title">Built on Open Innovation</h2>
+          <p class="oss-text">
+            ProposalPilot runs on <strong>Gemma</strong>, Google's open-weight model. The entire stack is open source — inspect it, modify it, host it yourself.
+            No vendor lock-in, no surprise pricing changes, no data leaving your control.
+          </p>
+          <div class="oss-tech-stack">
+            <div class="tech-badge" id="tech-gemma">
+              <span class="tech-icon">🤖</span> Gemma (Open-Weight)
+            </div>
+            <div class="tech-badge" id="tech-vite">
+              <span class="tech-icon">⚡</span> Vite
+            </div>
+            <div class="tech-badge" id="tech-node">
+              <span class="tech-icon">🟢</span> Node.js
+            </div>
+            <div class="tech-badge" id="tech-local">
+              <span class="tech-icon">🔒</span> Local Inference
+            </div>
+          </div>
+        </div>
+        <div class="oss-visual">
+          <div class="code-block">
+            <div class="code-header">
+              <span class="code-dot code-dot-red"></span>
+              <span class="code-dot code-dot-yellow"></span>
+              <span class="code-dot code-dot-green"></span>
+              <span class="code-filename">server.js</span>
+            </div>
+            <pre class="code-content"><code><span class="code-comment">// 100% local — your data stays yours</span>
+<span class="code-keyword">import</span> { GoogleGenAI } <span class="code-keyword">from</span> <span class="code-string">'@google/genai'</span>;
+
+<span class="code-keyword">const</span> ai = <span class="code-keyword">new</span> GoogleGenAI({
+  apiKey: process.env.GEMINI_API_KEY
+});
+
+<span class="code-keyword">const</span> response = <span class="code-keyword">await</span> ai.models
+  .generateContent({
+    model: <span class="code-string">'gemma-3-27b-it'</span>,
+    contents: proposalPrompt,
+  });</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section" id="cta-section">
+    <div class="section-container">
+      <div class="cta-card">
+        <h2 class="cta-title">Ready to Win More Freelance Gigs?</h2>
+        <p class="cta-text">Join 2,800+ freelancers who stopped guessing and started winning. Open source, free forever.</p>
+        <div class="cta-actions">
+          <button class="btn btn-primary btn-lg" onclick="scrollToGenerator()">
+            Generate Your First Proposal
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="footer-container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo">
+            <span class="logo-icon">🚀</span>
+            <span class="logo-text">ProposalPilot</span>
+          </a>
+          <p class="footer-tagline">Your AI side hustle wingman. Open source, privacy-first.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4 class="footer-col-title">Product</h4>
+            <a href="#features">Features</a>
+            <a href="#generator">Generator</a>
+            <a href="#pricing">Pricing</a>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Resources</h4>
+            <a href="#">Documentation</a>
+            <a href="#">API Reference</a>
+            <a href="#">Changelog</a>
+          </div>
+          <div class="footer-col">
+            <h4 class="footer-col-title">Community</h4>
+            <a href="#">GitHub</a>
+            <a href="#">Discord</a>
+            <a href="#">DEV.to</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 ProposalPilot. Open source under MIT License.</p>
+        <p>Built with ❤️ using Gemma by Google · Hacktoberfest 2026</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

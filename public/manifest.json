@@ -1,0 +1,9 @@
+{
+  "name": "ProposalPilot",
+  "short_name": "ProposalPilot",
+  "description": "AI-powered proposal generator for freelancers using open-source AI",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#6366f1"
+}
