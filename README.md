@@ -118,8 +118,8 @@ With Gemma:
 
 ```bash
 # Clone the repo
-git clone https://github.com/yourusername/proposalpilot.git
-cd proposalpilot
+git clone https://github.com/rachiittt/ProposalPilot.git
+cd ProposalPilot
 
 # Install dependencies
 npm install
